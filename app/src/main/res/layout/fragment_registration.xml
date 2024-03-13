@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+    tools:context=".Views.Fragments.RegistrationFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="161dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:gravity="center"
+        android:text="@string/almost_done"
+        android:textColor="#292929"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="@drawable/cardview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+
+
+            <EditText
+                android:id="@+id/SignUpOrgname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn2"
+                android:layout_gravity="center"
+                android:hint="@string/organization_name"
+                android:paddingStart="10dp"
+                android:textSize="15sp"
+                android:fontFamily="@font/montserrat"
+                android:textColorHint="#8AECF4D6"
+                android:layout_marginTop="40dp"
+                />
+
+            <EditText
+                android:id="@+id/SignUpOrgID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn2"
+                android:layout_gravity="center"
+                android:hint="@string/organization_id"
+                android:paddingStart="10dp"
+                android:textSize="15sp"
+                android:textColorHint="#8AECF4D6"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginTop="25dp"
+                />
+            <EditText
+                android:id="@+id/SignUpAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn2"
+                android:layout_gravity="center"
+                android:hint="@string/address"
+                android:paddingStart="10dp"
+                android:textSize="15sp"
+                android:textColorHint="#8AECF4D6"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginTop="25dp"
+                />
+            <EditText
+                android:id="@+id/SignUpPin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn2"
+                android:layout_gravity="center"
+                android:hint="@string/pincode"
+                android:paddingStart="10dp"
+                android:textSize="15sp"
+                android:textColorHint="#8AECF4D6"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginTop="25dp"
+                />
+            <EditText
+                android:id="@+id/SignUpCNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn2"
+                android:layout_gravity="center"
+                android:hint="@string/contact_number"
+                android:paddingStart="10dp"
+                android:textSize="15sp"
+                android:textColorHint="#8AECF4D6"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginTop="25dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/SignUpCreateAcc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn3"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="@string/create_account"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textColor="#292929"
+                android:fontFamily="@font/montserrat"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </FrameLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

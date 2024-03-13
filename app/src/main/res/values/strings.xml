@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Prognosis AI</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">This is a test fragment</string>
+    <string name="joydeep">Joydeep</string>
+    <string name="start_desc">Empowering you to\ntake control of\nyour health</string>
+    <string name="startlogin">Login</string>
+    <string name="Startsign_up">Sign Up</string>
+    <string name="Startsignup">Sign Up</string>
+    <string name="SignUp_sign_up">Sign Up</string>
+    <string name="SignUpemail">Email</string>
+    <string name="SignUp_password">Password</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login_Login">Login</string>
+    <string name="get_started">Get Started</string>
+    <string name="login_login">Login</string>
+    <string name="SignUp_login">Login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="Login_sign_up">Sign Up</string>
+    <string name="almost_done">Almost done!</string>
+    <string name="organization_name">Organization Name</string>
+    <string name="organization_id">Organization ID</string>
+    <string name="address">Address</string>
+    <string name="pincode">Pincode</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="create_account">Create Account</string>
+</resources>
