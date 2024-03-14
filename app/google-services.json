@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "393081675425",
+    "project_id": "prognosis-ai",
+    "storage_bucket": "prognosis-ai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393081675425:android:268232a2b87e1e228e5ae0",
+        "android_client_info": {
+          "package_name": "com.example.prognosisai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7DY0Bnt5cdNyMCs5wiXcTo3hta9dXmVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

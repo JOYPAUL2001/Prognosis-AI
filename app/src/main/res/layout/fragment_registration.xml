@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="161dp"
+        android:layout_width="165dp"
         android:layout_height="30dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
@@ -17,7 +17,7 @@
         android:gravity="center"
         android:text="@string/almost_done"
         android:textColor="#292929"
-        android:textSize="22sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
                 android:textSize="15sp"
                 android:fontFamily="@font/montserrat"
                 android:textColorHint="#8AECF4D6"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="60dp"
                 />
 
             <EditText

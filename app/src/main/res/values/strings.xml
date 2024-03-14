@@ -24,4 +24,9 @@
     <string name="pincode">Pincode</string>
     <string name="contact_number">Contact Number</string>
     <string name="create_account">Create Account</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="fg_forget_password">Forget Password?</string>
+    <string name="don_t_worry_nenter_your_registered_email_id">Don\'t worry!\nEnter your registered Email ID</string>
+    <string name="fg_submit">Submit</string>
+    <string name="prognosis_ai">Prognosis AI</string>
 </resources>

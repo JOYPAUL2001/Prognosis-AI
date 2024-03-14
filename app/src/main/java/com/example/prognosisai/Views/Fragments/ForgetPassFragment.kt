@@ -7,28 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.prognosisai.R
+import com.example.prognosisai.databinding.FragmentForgetPassBinding
 import com.example.prognosisai.databinding.FragmentSignInBinding
 
 
-class SignInFragment : Fragment() {
-    private lateinit var binding: FragmentSignInBinding
+class ForgetPassFragment : Fragment() {
+
+    private lateinit var binding: FragmentForgetPassBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding =  FragmentSignInBinding.inflate(inflater, container, false)
+        binding =  FragmentForgetPassBinding.inflate(inflater, container, false)
 
-
-       binding.LoginSignup.setOnClickListener{
-           findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
-       }
-
-        binding.loginForget.setOnClickListener {
-            findNavController().navigate(R.id.action_signInFragment_to_forgetPassFragment)
+        binding.fgsubmit.setOnClickListener {
+            findNavController().navigate(R.id.action_forgetPassFragment_to_signInFragment)
         }
 
         return binding.root
     }
+
 
 }

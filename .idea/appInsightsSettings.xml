@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.prognosisai" />
+                  <option name="mobileSdkAppId" value="1:393081675425:android:268232a2b87e1e228e5ae0" />
+                  <option name="projectId" value="prognosis-ai" />
+                  <option name="projectNumber" value="393081675425" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
