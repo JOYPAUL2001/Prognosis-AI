@@ -1,6 +1,7 @@
 package com.example.prognosisai.di
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,4 +17,5 @@ object AppModule {
     fun providesFirebaseAuthInstance() : FirebaseAuth {
         return FirebaseAuth.getInstance()
     }
+
 }

@@ -19,6 +19,5 @@ class WelcomeActivity : AppCompatActivity() {
         Thread.sleep(2500)
         installSplashScreen()
         setContentView(R.layout.activity_welcome)
-
     }
 }
