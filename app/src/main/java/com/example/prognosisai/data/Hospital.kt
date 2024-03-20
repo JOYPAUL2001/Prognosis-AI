@@ -7,5 +7,6 @@ data class Hospital(
     val name : String? = null,
     val address : String? = null,
     val pinCode : String? = null,
-    val contactNumber: String? = null
+    val contactNumber: String? = null,
+    val patient: MutableList<Patient>? = null
 )
