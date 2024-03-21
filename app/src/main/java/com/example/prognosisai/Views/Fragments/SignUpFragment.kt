@@ -76,7 +76,7 @@ class SignUpFragment : Fragment() {
 
     private fun userValidation(): Pair<Boolean, String> {
         val userRequest = setUserRequest()
-        return inputValidationHelper().userInputValidation(userRequest.email, userRequest.password, false)
+        return inputValidationHelper().userInputValidation(userRequest.email!!, userRequest.password, false)
     }
 
 

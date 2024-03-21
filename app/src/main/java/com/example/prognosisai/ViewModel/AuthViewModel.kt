@@ -7,6 +7,7 @@ import com.example.prognosisai.Repository.AuthRepositoryImpl
 import com.example.prognosisai.data.Hospital
 import com.example.prognosisai.utils.NetworkResource
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -25,6 +26,9 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepositoryIm
 
     val emailVerfResponseLiveData: LiveData<NetworkResource<String>>
         get() = repository.emailVerfResponseLiveData
+
+    val storingHospitalsDetails: LiveData<NetworkResource<String>>
+        get() = repository.storingHospitalsDetails
 
     suspend fun signupUsingEmailAndPassword(hospital: Hospital) {
         viewModelScope.launch {
@@ -55,6 +59,12 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepositoryIm
             repository.checkEmailVerification()
         }
         return str.await()
+    }
+
+    suspend fun storeHospitalData(hospital: Hospital) {
+        viewModelScope.launch {
+            repository.storingHospitalDetailsRDB(hospital)
+        }
     }
 
 }

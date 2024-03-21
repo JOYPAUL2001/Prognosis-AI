@@ -16,9 +16,7 @@ import com.example.prognosisai.data.Hospital
 import com.example.prognosisai.databinding.FragmentSignInBinding
 import com.example.prognosisai.utils.NetworkResource
 import com.example.prognosisai.utils.inputValidationHelper
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -101,7 +99,7 @@ class SignInFragment : Fragment() {
 
     private fun userValidation(): Pair<Boolean, String> {
         val userRequest = setUserRequest()
-        return inputValidationHelper().userInputValidation(userRequest.email, userRequest.password, false)
+        return inputValidationHelper().userInputValidation(userRequest.email!!, userRequest.password, false)
     }
 
     override fun onDestroy() {

@@ -14,8 +14,6 @@ import com.example.prognosisai.R
 import com.example.prognosisai.ViewModel.AuthViewModel
 import com.example.prognosisai.data.Hospital
 import com.example.prognosisai.databinding.FragmentForgetPassBinding
-import com.example.prognosisai.databinding.FragmentRegistrationBinding
-import com.example.prognosisai.databinding.FragmentSignInBinding
 import com.example.prognosisai.utils.NetworkResource
 import com.example.prognosisai.utils.inputValidationHelper
 import dagger.hilt.android.AndroidEntryPoint
@@ -82,7 +80,7 @@ class ForgetPassFragment : Fragment() {
 
     private fun userValidation(): Pair<Boolean, String> {
         val userRequest = setUserRequest()
-        return inputValidationHelper().forgetPassInputValidation(userRequest.email,  false)
+        return inputValidationHelper().forgetPassInputValidation(userRequest.email!!,  false)
     }
 
     override fun onDestroy() {

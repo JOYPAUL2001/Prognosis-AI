@@ -9,4 +9,6 @@ interface AuthRepository {
     suspend fun emailVerification()
 
     suspend fun checkEmailVerification() : Boolean
+
+    suspend fun storingHospitalDetailsRDB(hospital: Hospital)
 }

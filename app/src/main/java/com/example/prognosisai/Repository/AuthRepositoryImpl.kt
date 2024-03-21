@@ -6,13 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import com.example.prognosisai.data.Hospital
 import com.example.prognosisai.utils.Constant.TAG
 import com.example.prognosisai.utils.NetworkResource
-import com.google.firebase.auth.EmailAuthCredential
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
 import javax.inject.Inject
 
 
-class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseAuth) : AuthRepository {
+class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseAuth, private val databaseRef: DatabaseReference) : AuthRepository {
 
     private val _userSignupResponseLiveData = MutableLiveData<NetworkResource<String>>()
     val userSignupResponseLiveData: LiveData<NetworkResource<String>>
@@ -30,8 +29,11 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
     val emailVerfResponseLiveData: LiveData<NetworkResource<String>>
         get() = _emailVerfResponseLiveData
 
-//    private val checkEmailLiveData: MutableLiveData<NetworkResource<Boolean>>()
-//            get() = _checkEmailLiveData
+
+    private val _storingHospitalsDetails = MutableLiveData<NetworkResource<String>>()
+    val storingHospitalsDetails: LiveData<NetworkResource<String>>
+        get() = _storingHospitalsDetails
+
 
 
 
@@ -41,7 +43,7 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
 
     override suspend fun signUpWithEmail(hospital: Hospital) {
         try {
-            firebaseAuth.createUserWithEmailAndPassword(hospital.email, hospital.password!!)
+            firebaseAuth.createUserWithEmailAndPassword(hospital.email!!, hospital.password!!)
                 .addOnCompleteListener{
                     if (it.isSuccessful){
                         _userSignupResponseLiveData.postValue(NetworkResource.Success(it.toString()))
@@ -60,7 +62,7 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
     override suspend fun signInWithEmail(hospital: Hospital) {
 
         try {
-            firebaseAuth.signInWithEmailAndPassword(hospital.email, hospital.password!!)
+            firebaseAuth.signInWithEmailAndPassword(hospital.email!!, hospital.password!!)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful){
                         _userSignInResponseLiveData.postValue(NetworkResource.Success(task.toString()))
@@ -78,7 +80,7 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
 
     override suspend fun forgotPassword(hospital: Hospital) {
         try {
-            firebaseAuth.sendPasswordResetEmail(hospital.email)
+            firebaseAuth.sendPasswordResetEmail(hospital.email!!)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful){
 
@@ -122,4 +124,24 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
 
     }
 
+
+    override suspend fun storingHospitalDetailsRDB(hospital: Hospital) {
+
+
+            val hospitalDetails = Hospital(hospital.email,hospital.password,hospital.id,hospital.name,hospital.address,hospital.pinCode,hospital.contactNumber,hospital.uniqueId,hospital.patient)
+            databaseRef.child(hospital.uniqueId!!).setValue(hospitalDetails).addOnCompleteListener {task ->
+                if (task.isSuccessful) {
+                    _storingHospitalsDetails.postValue(NetworkResource.Success("Hospital details stored successfully")) // Provide a clear success message
+                } else {
+                    _storingHospitalsDetails.postValue(NetworkResource.Error(message = "Failed to store hospital details"))
+                }
+            }
+    }
+
 }
+
+
+
+// _storingHospitalsDetails.postValue(NetworkResource.Success(task.toString()))
+
+//_storingHospitalsDetails.postValue(NetworkResource.Error(message = task.toString()))
