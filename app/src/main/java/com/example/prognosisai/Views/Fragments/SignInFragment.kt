@@ -16,7 +16,9 @@ import com.example.prognosisai.data.Hospital
 import com.example.prognosisai.databinding.FragmentSignInBinding
 import com.example.prognosisai.utils.NetworkResource
 import com.example.prognosisai.utils.inputValidationHelper
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -46,7 +48,9 @@ class SignInFragment : Fragment() {
             val validationResult = userValidation()
             if (validationResult.first){
                 val userReq = setUserRequest()
+                FirebaseAuth.getInstance().currentUser?.reload()
                 lifecycleScope.launch {
+                    delay(600)
                     val check = authViewModel.checkMailVerificationUsingEmail()
                     if(check){
                         authViewModel.signInusingEmailAndPassword(userReq)
@@ -80,7 +84,9 @@ class SignInFragment : Fragment() {
         authViewModel.userSignInResponseLiveData.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is NetworkResource.Success -> {
-                    findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+                    lifecycleScope.launch {
+                        findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+                    }
                 }
 
                 is NetworkResource.Error -> {

@@ -118,7 +118,6 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
     }
 
     override suspend fun checkEmailVerification() : Boolean {
-        firebaseAuth.currentUser!!.reload()
         Log.d(TAG, "checkEmailVerification: ${firebaseAuth.currentUser!!.isEmailVerified}")
         return firebaseAuth.currentUser!!.isEmailVerified
 
