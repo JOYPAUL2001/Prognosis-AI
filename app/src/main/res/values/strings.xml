@@ -29,4 +29,10 @@
     <string name="don_t_worry_nenter_your_registered_email_id">Don\'t worry!\nEnter your registered Email ID</string>
     <string name="fg_submit">Submit</string>
     <string name="prognosis_ai">Prognosis AI</string>
+    <string name="todo">TODO</string>
+    <string name="files">Files</string>
+    <string name="account">Account</string>
+    <string name="files_fragment">Files Fragment</string>
+    <string name="predict">Predict</string>
+    <string name="account_fragment">Account Fragment</string>
 </resources>

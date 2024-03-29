@@ -21,7 +21,8 @@ kotlinxCoroutinesCore = "1.8.0"
 lifecycleViewmodelKtx = "2.7.0"
 googleServices = "4.4.1"
 firebaseAuth = "22.3.1"
-firebaseFirestore = "24.10.3"
+firebaseFirestore = "24.11.0"
+materialVersion = "1.11.0"
 firebaseDatabase = "20.3.1"
 
 [libraries]
@@ -30,6 +31,7 @@ androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", versi
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+google-material = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }

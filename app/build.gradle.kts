@@ -79,7 +79,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core.v173)
     implementation(libs.kotlinx.coroutines.android.v173)
 
-
+    //Material Component
+    implementation(libs.google.material)
 
 
 

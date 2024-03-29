@@ -1,4 +1,4 @@
-package com.example.prognosisai
+package com.example.prognosisai.Views.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -25,7 +25,6 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

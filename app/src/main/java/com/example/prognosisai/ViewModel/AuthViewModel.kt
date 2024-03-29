@@ -55,9 +55,16 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepositoryIm
     }
 
     suspend fun checkMailVerificationUsingEmail(): Boolean {
-        firebaseAuth.currentUser!!.reload()
+        //firebaseAuth.currentUser!!.reload()
         val str = viewModelScope.async {
             repository.checkEmailVerification()
+        }
+        return str.await()
+    }
+
+    suspend fun alreadyLogedInUsingEmail(): Boolean{
+        val str = viewModelScope.async {
+            repository.alReadyLogedIn()
         }
         return str.await()
     }

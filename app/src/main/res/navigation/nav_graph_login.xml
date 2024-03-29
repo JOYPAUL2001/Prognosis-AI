@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_startFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_homeActivity"
+            app:destination="@id/homeActivity" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -40,8 +43,8 @@
             android:id="@+id/action_signInFragment_to_forgetPassFragment"
             app:destination="@id/forgetPassFragment" />
         <action
-            android:id="@+id/action_signInFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_signInFragment_to_homeActivity"
+            app:destination="@id/homeActivity" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -64,10 +67,9 @@
             android:id="@+id/action_forgetPassFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.prognosisai.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-    </fragment>
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.prognosisai.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
 </navigation>

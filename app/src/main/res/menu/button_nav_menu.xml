@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/FilesFragment"
+        android:title="@string/files"
+        android:icon="@drawable/file_selector"/>
+    <item
+        android:id="@+id/placeholder"
+        android:title=""/>
+    <item
+        android:id="@+id/AccountFragment"
+        android:title="@string/account"
+        android:icon="@drawable/acc_selector"/>
+</menu>

@@ -85,7 +85,7 @@ class SignInFragment : Fragment() {
             when (it) {
                 is NetworkResource.Success -> {
                     lifecycleScope.launch {
-                        findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+                        findNavController().navigate(R.id.action_signInFragment_to_homeActivity)
                     }
                 }
 

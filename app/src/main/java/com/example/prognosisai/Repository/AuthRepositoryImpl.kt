@@ -17,17 +17,25 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
     val userSignupResponseLiveData: LiveData<NetworkResource<String>>
         get() = _userSignupResponseLiveData
 
+
+
     private val _userSignInResponseLiveData = MutableLiveData<NetworkResource<String>>()
     val userSignInResponseLiveData: LiveData<NetworkResource<String>>
         get() = _userSignInResponseLiveData
+
+
 
     private val _forgetpassResponseLiveData = MutableLiveData<NetworkResource<String>>()
     val forgetpassResponseLiveData: LiveData<NetworkResource<String>>
         get() = _forgetpassResponseLiveData
 
+
+
     private val _emailVerfResponseLiveData = MutableLiveData<NetworkResource<String>>()
     val emailVerfResponseLiveData: LiveData<NetworkResource<String>>
         get() = _emailVerfResponseLiveData
+
+
 
 
     private val _storingHospitalsDetails = MutableLiveData<NetworkResource<String>>()
@@ -118,9 +126,13 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
     }
 
     override suspend fun checkEmailVerification() : Boolean {
-        Log.d(TAG, "checkEmailVerification: ${firebaseAuth.currentUser!!.isEmailVerified}")
+       // Log.d(TAG, "checkEmailVerification: ${firebaseAuth.currentUser!!.isEmailVerified}")
         return firebaseAuth.currentUser!!.isEmailVerified
 
+    }
+
+    override suspend fun alReadyLogedIn(): Boolean {
+        return firebaseAuth.currentUser!=null
     }
 
 

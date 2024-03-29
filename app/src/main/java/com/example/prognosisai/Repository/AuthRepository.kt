@@ -10,5 +10,7 @@ interface AuthRepository {
 
     suspend fun checkEmailVerification() : Boolean
 
+    suspend fun alReadyLogedIn() : Boolean
+
     suspend fun storingHospitalDetailsRDB(hospital: Hospital)
 }

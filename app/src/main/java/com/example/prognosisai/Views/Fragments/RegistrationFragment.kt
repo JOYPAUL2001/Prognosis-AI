@@ -15,7 +15,7 @@ import com.example.prognosisai.R
 import com.example.prognosisai.ViewModel.AuthViewModel
 import com.example.prognosisai.data.Hospital
 import com.example.prognosisai.databinding.FragmentRegistrationBinding
-import com.example.prognosisai.databinding.FragmentSignInBinding
+
 import com.example.prognosisai.di.AppModule
 import com.example.prognosisai.utils.NetworkResource
 import com.example.prognosisai.utils.TokenManager
@@ -90,7 +90,6 @@ class RegistrationFragment : Fragment() {
                         delay(600)
                         findNavController().navigate(R.id.action_registrationFragment_to_signInFragment)
                     }
-
                 }
                 is NetworkResource.Error -> {
                     Toast.makeText(this.context, "" + it.message, Toast.LENGTH_SHORT).show()
