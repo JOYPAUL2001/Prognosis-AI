@@ -26,7 +26,7 @@
             android:id="@+id/predButton"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:text="@string/predict"
             android:background="@drawable/btn3"
             android:textColor="#292929"

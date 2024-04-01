@@ -35,4 +35,6 @@
     <string name="files_fragment">Files Fragment</string>
     <string name="predict">Predict</string>
     <string name="account_fragment">Account Fragment</string>
+    <string name="patient_details">Patient Details</string>
+    <string name="predicted_type_melanoma">Predicted Type - Melanoma</string>
 </resources>
