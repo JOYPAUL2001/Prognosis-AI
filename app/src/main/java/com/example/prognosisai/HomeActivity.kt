@@ -1,7 +1,10 @@
 package com.example.prognosisai
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -9,7 +12,10 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -24,6 +30,7 @@ import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.File
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -36,6 +43,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var bitmap : Bitmap
     private var clicked = false
+    private lateinit var imageUri: Uri
 
     @Inject
     lateinit var tokenManager : TokenManager
@@ -50,28 +58,46 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
 
+        // setting navigation View null
         binding.navView.background=null
         binding.navView.menu.getItem(1).isEnabled = false
 
 
+        //Controlling files fragment and account fragment
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.NavHostFragment) as NavHostFragment
         val navController = navHostFragment.navController
         binding.navView.setupWithNavController(navController)
 
 
+       // handling floating action button
         binding.fab.setOnClickListener {
             onAddButtonClicked()
         }
-        binding.fabCam.setOnClickListener {
-            Toast.makeText(this,"Camera Section", Toast.LENGTH_SHORT).show()
-        }
 
+        //to upload pic in image view
         binding.fabUpload.setOnClickListener {
             binding.uploadPhoto.root.isVisible = true
             val intent = Intent()
             intent.action = Intent.ACTION_GET_CONTENT
             intent.type = "image/*"
             startActivityForResult(intent,100)
+        }
+
+        //to take pic using camera
+        binding.fabCam.setOnClickListener {
+            binding.uploadPhoto.root.isVisible = true
+            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED
+                ){
+                imageUri= createImageUri()!!
+                imageUri?.let { uri ->
+                    contract.launch(uri)
+                }
+            }
+            else{
+                requestPermission.launch(android.Manifest.permission.CAMERA)
+            }
+
         }
 
         val labels = application.assets.open("TypesOfSkinCancer.txt").bufferedReader().readLines()
@@ -110,6 +136,20 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this,PatientDetailsActivity::class.java))
         }
     }
+    //CAMERA PERMISSION
+    private val requestPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){granted ->
+        if(granted){
+            imageUri= createImageUri()!!
+            imageUri?.let { uri ->
+                contract.launch(uri)
+            }
+        }
+        else{
+            Toast.makeText(this, "Permission Denied!! Try Again!!",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    //For Upload pic
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==100){
@@ -119,6 +159,30 @@ class HomeActivity : AppCompatActivity() {
             binding.uploadPhoto.predimage.background=null
         }
     }
+//FOR CAMERA
+    private val contract = registerForActivityResult(ActivityResultContracts.TakePicture()){
+        bitmap = uriToBitmap(imageUri)
+        binding.uploadPhoto.predimage.setImageBitmap(bitmap)
+        binding.uploadPhoto.predimage.rotation = 90f
+        binding.uploadPhoto.predimage.background=null
+    }
+    private fun createImageUri(): Uri? {
+        val image = File(applicationContext.filesDir,"camera_photo_prog.png")
+        return FileProvider.getUriForFile(applicationContext,
+            "com.example.prognosisai.fileProvider",
+            image)
+    }
+    private fun uriToBitmap(uri: Uri): Bitmap {
+        val contentResolver = contentResolver
+        val inputStream = contentResolver.openInputStream(uri)
+        val bitmaps = BitmapFactory.decodeStream(inputStream)
+        inputStream?.close()
+        return bitmaps
+    }
+
+
+
+
 
     private fun onAddButtonClicked() {
         setVisibilty(clicked)
