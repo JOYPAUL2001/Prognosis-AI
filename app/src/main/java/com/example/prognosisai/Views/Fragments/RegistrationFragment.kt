@@ -64,7 +64,6 @@ class RegistrationFragment : Fragment() {
            }
        }
         bindObserver()
-
     }
 
     private fun bindObserver() {

@@ -1,5 +1,7 @@
 package com.example.prognosisai.di
 
+import com.example.prognosisai.data.Hospital
+import com.example.prognosisai.data.Patient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
@@ -8,6 +10,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Named
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -25,4 +28,12 @@ object AppModule {
     fun providesRealTimeDatabaseInstance() : DatabaseReference{
         return FirebaseDatabase.getInstance().getReference("Hospital Info")
     }
+
+//    @Provides
+//    @Singleton
+//    fun providesHospitalDatabaseInstance(hospital: Hospital) : DatabaseReference{
+//        return providesRealTimeDatabaseInstance().child(hospital.uniqueId!!)
+//    }
+
+
 }

@@ -4,14 +4,19 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.prognosisai.data.Hospital
+import com.example.prognosisai.data.Patient
 import com.example.prognosisai.utils.Constant.TAG
 import com.example.prognosisai.utils.NetworkResource
+import com.example.prognosisai.utils.TokenManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import javax.inject.Inject
 
 
-class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseAuth, private val databaseRef: DatabaseReference) : AuthRepository {
+class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseAuth, private val providesRealTimeDatabaseInstance: DatabaseReference) : AuthRepository {
+
+    @Inject
+    lateinit var tokenManager : TokenManager
 
     private val _userSignupResponseLiveData = MutableLiveData<NetworkResource<String>>()
     val userSignupResponseLiveData: LiveData<NetworkResource<String>>
@@ -44,6 +49,9 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
 
 
 
+    private val _storingPatientDetails = MutableLiveData<NetworkResource<String>>()
+    val storingPatientDetails : LiveData<NetworkResource<String>>
+        get() = _storingPatientDetails
 
 
 
@@ -140,13 +148,26 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
 
 
             val hospitalDetails = Hospital(hospital.email,hospital.password,hospital.id,hospital.name,hospital.address,hospital.pinCode,hospital.contactNumber,hospital.uniqueId,hospital.patient)
-            databaseRef.child(hospital.uniqueId!!).setValue(hospitalDetails).addOnCompleteListener {task ->
+            providesRealTimeDatabaseInstance.child(hospital.uniqueId!!).setValue(hospitalDetails).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    tokenManager.saveId("Hospital_Id",hospital.uniqueId)
+                    providesRealTimeDatabaseInstance.child(tokenManager.getId("Hospital_Id")!!).child("Patient")
                     _storingHospitalsDetails.postValue(NetworkResource.Success("Hospital details stored successfully")) // Provide a clear success message
                 } else {
                     _storingHospitalsDetails.postValue(NetworkResource.Error(message = "Failed to store hospital details"))
                 }
             }
+    }
+
+    override suspend fun storingPatientDetailsRDB(patient: Patient) {
+        val patientDetails = Patient(patient.prediction, patient.pName, patient.dob, patient.gender, patient.age, patient.city, patient.state, patient.ptId, patient.ptUniqueId)
+        providesRealTimeDatabaseInstance.child(tokenManager.getId("Hospital_Id")!!).child("Patient").child(patient.ptUniqueId!!).setValue(patientDetails).addOnCompleteListener { task->
+            if (task.isSuccessful) {
+                _storingHospitalsDetails.postValue(NetworkResource.Success("Patient details stored successfully")) // Provide a clear success message
+            } else {
+                _storingHospitalsDetails.postValue(NetworkResource.Error(message = "Failed to store patient details"))
+            }
+        }
     }
 
 }

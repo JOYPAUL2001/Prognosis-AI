@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -32,7 +33,7 @@ import org.tensorflow.lite.support.image.ops.ResizeOp
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
 import javax.inject.Inject
-
+const val TAG = "Paul"
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
     private val rotateopen: Animation by lazy { AnimationUtils. loadAnimation(this, R.anim.rotate_open_anim) }
@@ -77,6 +78,9 @@ class HomeActivity : AppCompatActivity() {
         //to upload pic in image view
         binding.fabUpload.setOnClickListener {
             binding.uploadPhoto.root.isVisible = true
+            binding.uploadPhoto.predimage.setImageBitmap(null)
+            binding.uploadPhoto.predimage.setBackgroundResource(R.drawable.prediction)
+            binding.uploadPhoto.predimage.rotation = 0f
             val intent = Intent()
             intent.action = Intent.ACTION_GET_CONTENT
             intent.type = "image/*"
@@ -86,6 +90,9 @@ class HomeActivity : AppCompatActivity() {
         //to take pic using camera
         binding.fabCam.setOnClickListener {
             binding.uploadPhoto.root.isVisible = true
+            binding.uploadPhoto.predimage.setImageBitmap(null)
+            binding.uploadPhoto.predimage.setBackgroundResource(R.drawable.prediction)
+            binding.uploadPhoto.predimage.rotation = 0f
             if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED
                 ){
@@ -107,11 +114,10 @@ class HomeActivity : AppCompatActivity() {
             .build()
 
         binding.uploadPhoto.predButton.setOnClickListener {
-
             var tensorImage = TensorImage(DataType.FLOAT32)
             tensorImage.load(bitmap)
 
-            tensorImage= imageProcessor.process(tensorImage)
+            tensorImage = imageProcessor.process(tensorImage)
 
             val model = MobilenetV110224Quantprog.newInstance(this)
 
@@ -125,15 +131,16 @@ class HomeActivity : AppCompatActivity() {
 
             var maxIdx = 0
             outputFeature0.forEachIndexed { index, fl ->
-                if(outputFeature0[maxIdx]<fl){
-                    maxIdx=index
+                if (outputFeature0[maxIdx] < fl) {
+                    maxIdx = index
                 }
             }
             tokenManager.saveToken(labels[maxIdx])
             // Releases model resources if no longer used.
             model.close()
 
-            startActivity(Intent(this,PatientDetailsActivity::class.java))
+            startActivity(Intent(this, PatientDetailsActivity::class.java))
+            binding.uploadPhoto.root.isVisible = false
         }
     }
     //CAMERA PERMISSION
@@ -152,11 +159,24 @@ class HomeActivity : AppCompatActivity() {
     //For Upload pic
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode==100){
-            val uri = data?.data
-            bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver,uri)
-            binding.uploadPhoto.predimage.setImageBitmap(bitmap)
-            binding.uploadPhoto.predimage.background=null
+        if (requestCode == 100 && resultCode == RESULT_OK && data != null) {
+            val uri = data.data
+            if (uri != null) {
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+                    // Use the initialized bitmap here
+                    binding.uploadPhoto.predimage.setImageBitmap(bitmap)
+                    binding.uploadPhoto.predimage.rotation = 0f
+                    binding.uploadPhoto.predimage.background = null
+                } catch (e: Exception) {
+                    // Handle potential exceptions (e.g., invalid URI, permission issues)
+                    Toast.makeText(this, "Error loading image: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+//                Log.d(TAG, "onActivityResult: Hello")
+//                binding.uploadPhoto.predButton.isClickable = false
+                Toast.makeText(applicationContext, "No image selected", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 //FOR CAMERA

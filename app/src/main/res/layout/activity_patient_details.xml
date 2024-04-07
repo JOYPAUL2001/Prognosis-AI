@@ -21,19 +21,219 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/predResult"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="55dp"
-        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:text="@string/predicted_type_melanoma"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:fontFamily="@font/montserrat"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/predicted_type"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/predResult"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:paddingStart="2dp"
+                android:text="@string/predicted_type_melanoma"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/ptName"
+        android:layout_marginTop="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:background="@drawable/bt4"
+        android:hint="@string/name"
+        android:gravity="start|center"
+        android:paddingStart="10dp"
+        android:textColor="#265073"
+        android:textSize="15sp"
+        android:textColorHint="#B3265073"
         />
+<LinearLayout
+    android:id="@+id/linearSupport"
+    android:layout_width="301dp"
+    android:layout_height="46dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ptName"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    >
+    <TextView
+        android:id="@+id/ptDOB"
+        android:layout_width="240dp"
+        android:layout_height="45dp"
+        android:background="@drawable/bt4"
+        android:gravity="start|center"
+        android:hint="@string/d_o_b"
+        android:paddingEnd="7dp"
+        android:layout_marginEnd="5dp"
+        android:paddingStart="10dp"
+        android:textColor="#265073"
+        android:textColorHint="#B3265073"
+        android:textSize="15sp"
+        />
+    <Button
+        android:id="@+id/datePicker"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:backgroundTint="#ECF4D6"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/calender"
+        android:layout_gravity="center"
+        app:tint="#265073"
+        />
+
+</LinearLayout>
+
+
+    <EditText
+        android:id="@+id/ptGender"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/bt4"
+        android:gravity="start|center"
+        android:hint="@string/gender"
+        android:paddingEnd="7dp"
+        android:paddingStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#265073"
+        android:textColorHint="#B3265073"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearSupport" />
+
+
+    <EditText
+        android:id="@+id/ptAge"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/bt4"
+        android:gravity="start|center"
+        android:hint="@string/age"
+        android:paddingEnd="7dp"
+        android:paddingStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#265073"
+        android:textColorHint="#B3265073"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptGender" />
+
+    <EditText
+        android:id="@+id/ptCity"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bt4"
+        android:gravity="start|center"
+        android:hint="@string/city"
+        android:paddingStart="10dp"
+        android:paddingEnd="7dp"
+        android:textColor="#265073"
+        android:textColorHint="#B3265073"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptAge" />
+
+    <EditText
+        android:id="@+id/ptState"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/bt4"
+        android:gravity="start|center"
+        android:hint="@string/state"
+        android:paddingEnd="7dp"
+        android:paddingStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#265073"
+        android:textColorHint="#B3265073"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptCity" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/savePtDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt5"
+        android:fontFamily="@font/montserrat_light"
+        android:text="Save profile"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptState" />
+
+    <include
+        android:id="@+id/uniqueId"
+        layout="@layout/id_generation"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+
+
+
+    
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

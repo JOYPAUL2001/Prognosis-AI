@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.prognosisai.Repository.AuthRepositoryImpl
 import com.example.prognosisai.data.Hospital
+import com.example.prognosisai.data.Patient
 import com.example.prognosisai.utils.NetworkResource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -30,6 +31,9 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepositoryIm
 
     val storingHospitalsDetails: LiveData<NetworkResource<String>>
         get() = repository.storingHospitalsDetails
+
+    val storingPatientDetails: LiveData<NetworkResource<String>>
+        get() = repository.storingPatientDetails
 
     suspend fun signupUsingEmailAndPassword(hospital: Hospital) {
         viewModelScope.launch {
@@ -74,5 +78,12 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepositoryIm
             repository.storingHospitalDetailsRDB(hospital)
         }
     }
+
+    suspend fun storePatientData(patient: Patient){
+        viewModelScope.launch {
+            repository.storingPatientDetailsRDB(patient)
+        }
+    }
+
 
 }
