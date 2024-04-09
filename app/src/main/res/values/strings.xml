@@ -36,7 +36,7 @@
     <string name="predict">Predict</string>
     <string name="account_fragment">Account Fragment</string>
     <string name="patient_details">Patient Details</string>
-    <string name="predicted_type_melanoma">Basal cell carcinoma</string>
+    <string name="predicted_type_melanoma">Actinic keratoses and intraepithelial carcinomae</string>
     <string name="predicted_type">Predicted Type -</string>
     <string name="name">Name</string>
     <string name="gender">Gender</string>
@@ -45,5 +45,13 @@
     <string name="city">City</string>
     <string name="state">State</string>
     <string name="actual_id">Actual Id</string>
-    <string name="home">Home</string>
+    <string name="home">Go to home</string>
+    <string name="account_details">Account</string>
+    <string name="jnm_hospital">XYZ Hospital</string>
+    <string name="joydeepp2001_gmail_com">xyzofficial@gmail.com</string>
+    <string name="_918918094014">+9110000001</string>
+    <string name="_04_12_2019">00/00/0000</string>
+    <string name="total_no_nof_patients">Total No.\nof patients</string>
+    <string name="total_pdf_ngenerated">Total PDF\ngenerated</string>
+    <string name="_14">14</string>
 </resources>

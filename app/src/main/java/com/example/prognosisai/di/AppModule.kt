@@ -10,6 +10,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import java.util.Calendar
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -29,11 +30,10 @@ object AppModule {
         return FirebaseDatabase.getInstance().getReference("Hospital Info")
     }
 
-//    @Provides
-//    @Singleton
-//    fun providesHospitalDatabaseInstance(hospital: Hospital) : DatabaseReference{
-//        return providesRealTimeDatabaseInstance().child(hospital.uniqueId!!)
-//    }
-
+    @Provides
+    @Singleton
+    fun providesCalenderInstance() : Calendar{
+        return Calendar.getInstance()
+    }
 
 }

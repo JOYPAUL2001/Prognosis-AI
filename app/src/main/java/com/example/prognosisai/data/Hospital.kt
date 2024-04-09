@@ -9,5 +9,6 @@ data class Hospital(
     val pinCode: String? = null,
     val contactNumber: String? = null,
     val uniqueId: String? = null,
+    val date: String? = null,
     val patient: MutableList<Patient>? = null
 )

@@ -5,25 +5,20 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.MotionEvent
-import android.widget.DatePicker
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.prognosisai.ViewModel.AuthViewModel
-import com.example.prognosisai.data.Hospital
 import com.example.prognosisai.data.Patient
 import com.example.prognosisai.databinding.ActivityPatientDetailsBinding
 import com.example.prognosisai.utils.NetworkResource
 import com.example.prognosisai.utils.TokenManager
+import com.example.prognosisai.utils.inputValidationHelper
 import com.google.firebase.database.DatabaseReference
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -33,7 +28,12 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class PatientDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPatientDetailsBinding
-    private val calendar = Calendar.getInstance()
+
+//    private val calendar = Calendar.getInstance()
+
+    @Inject
+    lateinit var calendar: Calendar
+
     @Inject
     lateinit var tokenManager : TokenManager
 
@@ -52,11 +52,15 @@ class PatientDetailsActivity : AppCompatActivity() {
         binding.predResult.text =tokenManager.getToken()
 
 
-
         binding.savePtDetails.setOnClickListener {
-            val id = generateUniqueId()
-            binding.uniqueId.root.isVisible = true
-            binding.uniqueId.actualId.text = id
+            val validationResult = patientValidation()
+            if(validationResult.first){
+                val id = generateUniqueId()
+                binding.uniqueId.root.isVisible = true
+                binding.uniqueId.actualId.text = id
+            }else{
+                Toast.makeText(this@PatientDetailsActivity, validationResult.second, Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.uniqueId.saveId.setOnClickListener {
@@ -64,6 +68,8 @@ class PatientDetailsActivity : AppCompatActivity() {
             binding.uniqueId.root.isVisible = false
             lifecycleScope.launch {
                 authViewModel.storePatientData(userReq)
+                startActivity(Intent(this@PatientDetailsActivity, HomeActivity::class.java))
+                finish()
             }
         }
         binding.datePicker.setOnClickListener {
@@ -76,11 +82,14 @@ class PatientDetailsActivity : AppCompatActivity() {
 
     private fun showDatePicker() {
         val datePickerDialog = DatePickerDialog(this,{DatePicker, year: Int,monthOfYear: Int, dayOfMonth: Int ->
-            val selectedDate:Calendar = Calendar.getInstance()
+            val selectedDate = calendar
             selectedDate.set(year, monthOfYear, dayOfMonth)
             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val formattedDate: String = dateFormat.format(selectedDate.time)
             binding.ptDOB.text= formattedDate
+            val currYear = Calendar.getInstance().get(Calendar.YEAR)
+            val age = currYear - year
+            binding.ptAge.text = age.toString()
         },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -123,5 +132,10 @@ class PatientDetailsActivity : AppCompatActivity() {
         val id = binding.uniqueId.actualId.text.toString()
         val uniqueId = providesRealTimeDatabaseInstance?.push()?.key
         return Patient(prediction = result, pName = Name, dob = DOB, gender = gender, age = age, city = city, state = state, ptId = id,ptUniqueId= uniqueId)
+    }
+
+    private fun patientValidation(): Pair<Boolean, String> {
+        val userRequest = setUserRequest()
+        return inputValidationHelper().patientDetailsValidation(userRequest.pName, userRequest.dob, userRequest.gender, userRequest.age, userRequest.city, userRequest.state)
     }
 }

@@ -30,6 +30,9 @@ class SignUpFragment : Fragment() {
 
     private val authViewModel by viewModels<AuthViewModel>()
 
+    @Inject
+    lateinit var tokenManager : TokenManager
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +54,7 @@ class SignUpFragment : Fragment() {
 
             val validationResult = userValidation()
             if (validationResult.first){
+                tokenManager.saveEmail("Hospital_Email",binding.SignUpEmail.text.toString())
                 val userReq = setUserRequest()
                 lifecycleScope.launch {
                     authViewModel.signupUsingEmailAndPassword(userReq)

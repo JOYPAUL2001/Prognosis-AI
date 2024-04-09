@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="400dp"
     android:backgroundTint="#9AD0C2"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
     app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +29,7 @@
 
         <View
             android:id="@+id/view"
-            android:layout_width="160dp"
+            android:layout_width="175dp"
             android:layout_height="2dp"
             android:background="#265073"
             app:layout_constraintTop_toBottomOf="@id/idStatement"
@@ -52,13 +54,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/saveId"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:background="@drawable/btn1"
             android:fontFamily="@font/montserrat_light"
             android:text="@string/home"
             android:textAllCaps="false"
             android:textColor="#ECF4D6"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:layout_marginTop="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

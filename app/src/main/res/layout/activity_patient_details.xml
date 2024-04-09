@@ -48,7 +48,7 @@
                 android:text="@string/predicted_type"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/predResult"
@@ -60,7 +60,7 @@
                 android:paddingStart="2dp"
                 android:text="@string/predicted_type_melanoma"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -118,15 +118,13 @@
         android:textColorHint="#B3265073"
         android:textSize="15sp"
         />
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/datePicker"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:backgroundTint="#ECF4D6"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginStart="15dp"
-        android:background="@drawable/calender"
+        android:background="@drawable/calendar"
         android:layout_gravity="center"
-        app:tint="#265073"
         />
 
 </LinearLayout>
@@ -150,7 +148,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearSupport" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/ptAge"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
@@ -220,8 +218,8 @@
         android:id="@+id/uniqueId"
         layout="@layout/id_generation"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_margin="16dp"
+        android:layout_height="450dp"
+        android:layout_margin="30dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

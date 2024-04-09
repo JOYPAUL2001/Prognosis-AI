@@ -30,7 +30,14 @@ class TokenManager @Inject constructor(@ApplicationContext context: Context) {
         return prefs.getString(id,null)
     }
 
+    fun saveEmail(id: String, token: String){
+        val editor = prefs.edit()
+        editor.putString(id, token)
+        editor.apply()
+    }
 
-
+    fun getEmail(id: String): String? {
+        return prefs.getString(id,null)
+    }
 
 }
