@@ -141,7 +141,6 @@ class RegistrationFragment : Fragment() {
         return inputValidationHelper().hospitalDetailsValidation(userRequest.name, userRequest.id, userRequest.address, userRequest.pinCode, userRequest.contactNumber)
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

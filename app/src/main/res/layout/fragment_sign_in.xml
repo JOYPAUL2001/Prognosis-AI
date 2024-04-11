@@ -80,17 +80,18 @@
                 android:fontFamily="@font/montserrat"
                 android:layout_marginTop="20dp"
                 />
+
             <TextView
                 android:id="@+id/login_forget"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:text="@string/forget_password"
-                android:fontFamily="@font/montserrat"
-                android:textColor="#D9D9D9"
                 android:layout_gravity="right"
-                android:gravity="center"
-                android:layout_marginEnd="45dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="35dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="@string/forget_password"
+                android:textColor="#D9D9D9"
                 android:textSize="15sp"
                 tools:ignore="RtlHardcoded" />
             <androidx.appcompat.widget.AppCompatButton

@@ -145,8 +145,6 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
 
 
     override suspend fun storingHospitalDetailsRDB(hospital: Hospital) {
-
-
             val hospitalDetails = Hospital(hospital.email,hospital.password,hospital.id,hospital.name,hospital.address,hospital.pinCode,hospital.contactNumber,hospital.uniqueId,hospital.date, hospital.patient)
             providesRealTimeDatabaseInstance.child(hospital.uniqueId!!).setValue(hospitalDetails).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -160,7 +158,7 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
     }
 
     override suspend fun storingPatientDetailsRDB(patient: Patient) {
-        val patientDetails = Patient(patient.prediction, patient.pName, patient.dob, patient.gender, patient.age, patient.city, patient.state, patient.ptId, patient.ptUniqueId)
+        val patientDetails = Patient(patient.prediction, patient.pname, patient.dob, patient.gender, patient.age, patient.city, patient.state, patient.ptId, patient.ptUniqueId)
         providesRealTimeDatabaseInstance.child(tokenManager.getId("Hospital_Id")!!).child("Patient").child(patient.ptUniqueId!!).setValue(patientDetails).addOnCompleteListener { task->
             if (task.isSuccessful) {
                 _storingHospitalsDetails.postValue(NetworkResource.Success("Patient details stored successfully")) // Provide a clear success message

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#ECF4D6"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bt7"
+        >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/list_name"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="2"
+                android:gravity="center|left"
+                android:text="@string/joydeep_paul"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/list_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/_12_04_2024"
+                android:textColor="@color/blue"
+                android:gravity="center|right"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/montserrat"
+                android:textSize="13sp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            >
+            <TextView
+                android:id="@+id/list_id"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text = "@string/_71900865437903"
+                android:textColor="@color/blue"
+                android:gravity="center|left"
+                android:fontFamily="@font/montserrat"
+                android:layout_marginStart="10dp"
+                android:layout_weight="2"
+                android:textSize="13sp"
+                />
+
+            <TextView
+                android:id="@+id/list_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/gender"
+                android:textColor="#2D9596"
+                android:gravity="center|right"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="15sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

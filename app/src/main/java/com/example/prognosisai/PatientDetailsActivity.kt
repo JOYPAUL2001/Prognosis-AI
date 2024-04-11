@@ -131,11 +131,11 @@ class PatientDetailsActivity : AppCompatActivity() {
         val state = binding.ptState.text.toString()
         val id = binding.uniqueId.actualId.text.toString()
         val uniqueId = providesRealTimeDatabaseInstance?.push()?.key
-        return Patient(prediction = result, pName = Name, dob = DOB, gender = gender, age = age, city = city, state = state, ptId = id,ptUniqueId= uniqueId)
+        return Patient(prediction = result, pname = Name, dob = DOB, gender = gender, age = age, city = city, state = state, ptId = id,ptUniqueId= uniqueId)
     }
 
     private fun patientValidation(): Pair<Boolean, String> {
         val userRequest = setUserRequest()
-        return inputValidationHelper().patientDetailsValidation(userRequest.pName, userRequest.dob, userRequest.gender, userRequest.age, userRequest.city, userRequest.state)
+        return inputValidationHelper().patientDetailsValidation(userRequest.pname, userRequest.dob, userRequest.gender, userRequest.age, userRequest.city, userRequest.state)
     }
 }
