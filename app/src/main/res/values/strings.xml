@@ -49,7 +49,7 @@
     <string name="account_details">Account</string>
     <string name="jnm_hospital">XYZ Hospital</string>
     <string name="joydeepp2001_gmail_com">xyzofficial@gmail.com</string>
-    <string name="_918918094014">+9110000001</string>
+    <string name="_918918094014">9876543210</string>
     <string name="_04_12_2019">00/00/0000</string>
     <string name="total_no_nof_patients">Total No.\nof patients</string>
     <string name="total_pdf_ngenerated">Total PDF\ngenerated</string>
@@ -57,4 +57,7 @@
     <string name="joydeep_paul">Joydeep Paul</string>
     <string name="_71900865437903">71900865437903</string>
     <string name="_12_04_2024">12/04/2024</string>
+    <string name="report">Report</string>
+    <string name="hospital_name">Hospital Name</string>
+    <string name="update_hospital_details">Update Hospital Details</string>
 </resources>

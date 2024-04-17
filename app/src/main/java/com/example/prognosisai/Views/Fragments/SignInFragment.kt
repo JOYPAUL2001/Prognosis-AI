@@ -50,7 +50,7 @@ class SignInFragment : Fragment() {
                 val userReq = setUserRequest()
                 FirebaseAuth.getInstance().currentUser?.reload()
                 lifecycleScope.launch {
-                    delay(600)
+                    delay(400)
                     val check = authViewModel.checkMailVerificationUsingEmail()
                     if(check){
                         authViewModel.signInusingEmailAndPassword(userReq)

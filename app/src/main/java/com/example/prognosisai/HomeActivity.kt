@@ -35,7 +35,7 @@ import java.io.File
 import javax.inject.Inject
 const val TAG = "Paul"
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(){
     private val rotateopen: Animation by lazy { AnimationUtils. loadAnimation(this, R.anim.rotate_open_anim) }
     private val rotateclose: Animation by lazy { AnimationUtils. loadAnimation(this, R.anim.rotate_close_anim) }
     private val fromBottom: Animation by lazy { AnimationUtils. loadAnimation(this, R.anim.from_bottom_anim) }
@@ -242,5 +242,6 @@ class HomeActivity : AppCompatActivity() {
             binding.fab.startAnimation(rotateclose)
         }
     }
+
 }
 

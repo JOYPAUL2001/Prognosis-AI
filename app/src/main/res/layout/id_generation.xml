@@ -7,7 +7,8 @@
     android:backgroundTint="#9AD0C2"
     android:layout_marginStart="20dp"
     android:layout_marginEnd="20dp"
-    app:cardCornerRadius="10dp">
+    android:elevation="100dp"
+    app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -53,7 +54,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/saveId"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:background="@drawable/btn1"
             android:fontFamily="@font/montserrat_light"

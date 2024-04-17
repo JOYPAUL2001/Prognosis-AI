@@ -61,6 +61,8 @@
             android:layout_height="match_parent"
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph_home" />
+
+
     </FrameLayout>
 
     <include

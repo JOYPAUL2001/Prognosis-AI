@@ -7,15 +7,17 @@
     android:background="#ECF4D6"
     tools:context=".Views.Fragments.AccountFragment">
 
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="18dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <TextView
             android:layout_width="0dp"
@@ -36,215 +38,271 @@
             android:background="@drawable/logout" />
     </LinearLayout>
 
+
+
     <androidx.cardview.widget.CardView
-        android:layout_width="330dp"
-        android:layout_height="500dp"
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="100dp"
         app:cardCornerRadius="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="60dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/accont_shape"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/hospital_Name"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:text="@string/jnm_hospital"
-                    android:gravity="center|left"
-                    android:paddingStart="10dp"
                     android:layout_weight="2"
                     android:fontFamily="@font/montserrat_semibold"
-                    android:textSize="23sp"
+                    android:gravity="center|left"
+                    android:paddingStart="10dp"
+                    android:text="@string/jnm_hospital"
                     android:textColor="#ECF4D6"
-                    />
+                    android:textSize="23sp" />
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/editDetails"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/edit"
-                    />
+                    android:background="@drawable/edit" />
             </LinearLayout>
+
             <TextView
                 android:id="@+id/hospitalId"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="20dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/montserrat"
                 android:gravity="center|left"
                 android:paddingStart="10dp"
                 android:text="XXXXXX"
                 android:textColor="@color/blue"
-                android:fontFamily="@font/montserrat"
-                android:textSize="20sp"
-                />
-            <LinearLayout
+                android:textSize="20sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
-                android:orientation="horizontal"
-                >
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp">
+
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:text="@string/SignUpemail"
+                    android:fontFamily="@font/montserrat_light"
                     android:gravity="center|left"
                     android:paddingStart="10dp"
-                    android:fontFamily="@font/montserrat_light"
-                    android:textSize="15sp"
+                    android:text="@string/SignUpemail"
                     android:textColor="#ECF4D6"
-                    />
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/accountEmail"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/joydeepp2001_gmail_com"
-                    android:layout_weight="2"
                     android:gravity="center|end"
-                    android:textSize="15sp"
+                    android:text="@string/joydeepp2001_gmail_com"
                     android:textColor="#ECF4D6"
-                    />
-            </LinearLayout>
-            <LinearLayout
+                    android:textSize="15sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/accountEditEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center|end"
+                    android:text="@string/joydeepp2001_gmail_com"
+                    android:textColor="#ECF4D6"
+                    android:textSize="15sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
-                android:orientation="horizontal"
-                >
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp">
+
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:text="Phone"
+                    android:fontFamily="@font/montserrat_light"
                     android:gravity="center|left"
                     android:paddingStart="10dp"
-                    android:fontFamily="@font/montserrat_light"
-                    android:textSize="15sp"
+                    android:text="Phone"
                     android:textColor="#ECF4D6"
-                    />
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/accountPhone"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/_918918094014"
-                    android:layout_weight="2"
                     android:gravity="center|end"
-                    android:textSize="15sp"
+                    android:text="@string/_918918094014"
                     android:textColor="#ECF4D6"
-                    />
-            </LinearLayout>
+                    android:textSize="15sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/accountEditPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center|end"
+                    android:text="@string/_918918094014"
+                    android:textColor="#ECF4D6"
+                    android:textSize="15sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:text="Account\nCreated On"
+                    android:fontFamily="@font/montserrat_light"
                     android:gravity="center|left"
                     android:paddingStart="10dp"
-                    android:fontFamily="@font/montserrat_light"
-                    android:textSize="15sp"
+                    android:text="Account\nCreated On"
                     android:textColor="#ECF4D6"
-                    />
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/accountCreation"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="@string/_04_12_2019"
                     android:layout_weight="2"
                     android:gravity="center|end"
-                    android:textSize="15sp"
+                    android:text="@string/_04_12_2019"
                     android:textColor="#ECF4D6"
-                    />
+                    android:textSize="15sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:text="@string/total_no_nof_patients"
+                    android:fontFamily="@font/montserrat_light"
                     android:gravity="center|left"
                     android:paddingStart="10dp"
-                    android:fontFamily="@font/montserrat_light"
-                    android:textSize="15sp"
+                    android:text="@string/total_no_nof_patients"
                     android:textColor="#ECF4D6"
-                    />
+                    android:textSize="15sp" />
+
                 <TextView
                     android:id="@+id/accountpatients"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center|end"
                     android:text="12"
-                    android:layout_weight="2"
-                    android:gravity="center|end"
-                    android:textSize="15sp"
                     android:textColor="#ECF4D6"
-                    />
+                    android:textSize="15sp" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="@string/total_pdf_ngenerated"
-                    android:gravity="center|left"
-                    android:paddingStart="10dp"
-                    android:fontFamily="@font/montserrat_light"
-                    android:textSize="15sp"
-                    android:textColor="#ECF4D6"
-                    />
-                <TextView
-                    android:id="@+id/accountPDF"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/_14"
-                    android:layout_weight="2"
-                    android:gravity="center|end"
-                    android:textSize="15sp"
-                    android:textColor="#ECF4D6"
-                    />
-            </LinearLayout>
-
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="7dp"-->
+            <!--                android:layout_marginEnd="20dp"-->
+            <!--                android:layout_marginStart="20dp"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                >-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="100dp"-->
+            <!--                    android:layout_height="50dp"-->
+            <!--                    android:text="@string/total_pdf_ngenerated"-->
+            <!--                    android:gravity="center|left"-->
+            <!--                    android:paddingStart="10dp"-->
+            <!--                    android:fontFamily="@font/montserrat_light"-->
+            <!--                    android:textSize="15sp"-->
+            <!--                    android:textColor="#ECF4D6"-->
+            <!--                    />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/accountPDF"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:text="@string/_14"-->
+            <!--                    android:layout_weight="2"-->
+            <!--                    android:gravity="center|end"-->
+            <!--                    android:textSize="15sp"-->
+            <!--                    android:textColor="#ECF4D6"-->
+            <!--                    />-->
+            <!--            </LinearLayout>-->
 
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveUpdate"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn1"
+        android:fontFamily="@font/montserrat_light"
+        android:text="Update Details"
+        android:textSize="15sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

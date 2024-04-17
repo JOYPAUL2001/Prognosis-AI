@@ -14,5 +14,15 @@
         android:id="@+id/AccountFragment"
         android:name="com.example.prognosisai.Views.Fragments.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_AccountFragment_to_welcomeActivity"
+            app:destination="@id/welcomeActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/welcomeActivity"
+        android:name="com.example.prognosisai.WelcomeActivity"
+        android:label="WelcomeActivity"
+        tools:layout="@layout/activity_welcome"
+        />
 </navigation>

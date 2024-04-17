@@ -29,6 +29,9 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepositoryIm
     val emailVerfResponseLiveData: LiveData<NetworkResource<String>>
         get() = repository.emailVerfResponseLiveData
 
+
+    val checkemailVerificationLiveData: LiveData<NetworkResource<String>>
+        get() = repository.checkemailVerificationLiveData
     val storingHospitalsDetails: LiveData<NetworkResource<String>>
         get() = repository.storingHospitalsDetails
 
@@ -60,7 +63,7 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepositoryIm
 
     suspend fun checkMailVerificationUsingEmail(): Boolean {
         //firebaseAuth.currentUser!!.reload()
-        delay(600)
+        delay(300)
         val str = viewModelScope.async {
             repository.checkEmailVerification()
         }

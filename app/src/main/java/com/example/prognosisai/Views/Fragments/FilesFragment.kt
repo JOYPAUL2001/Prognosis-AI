@@ -2,6 +2,7 @@ package com.example.prognosisai.Views.Fragments
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -30,7 +32,8 @@ class FilesFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private lateinit var dialog: ProgressDialog
+    private lateinit var useradapter : ListAdapter
+
 
     private lateinit var ptList : ArrayList<Patient>
 
@@ -58,39 +61,67 @@ class FilesFragment : Fragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(binding.root.context)
 
-        ptList = arrayListOf()
+        ptList = ArrayList()
 
-        databasereference.child(tokenManager.getId("Hospital_Id")!!).child("Patient").addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    for(dataSnapshot in snapshot.children){
-                        val pt = dataSnapshot.getValue(Patient::class.java)
-                        if(!ptList.contains(pt)){
-                            ptList.add(pt!!)
+        useradapter = ListAdapter(ptList,requireContext())
+
+
+
+
+
+
+        databasereference.child(tokenManager.getId("Hospital_Id")!!).child("Patient")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        val newList = ArrayList<Patient>()
+                        for (dataSnapshot in snapshot.children) {
+                            val pt = dataSnapshot.getValue(Patient::class.java)
+                            newList.add(pt!!)
                         }
+                        // Update adapter only after data retrieval
+                        useradapter.updateList(newList)
+                        recyclerView.adapter = useradapter
+                        tokenManager.saveCount("Patient count", "${useradapter.itemCount}")
+                    } else {
+                        Toast.makeText(requireContext(),"Unable to fetch data!",Toast.LENGTH_SHORT).show()
                     }
-                    recyclerView.adapter = ListAdapter(ptList)
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(requireContext(),"No Patient Details are there!",Toast.LENGTH_SHORT).show()
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        requireContext(),
+                        "No Patient Details are there!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
+
+
+       // Log.d("Nesha", "onViewCreated: ${useradapter.itemCount}")
+
+        binding.searchView.setOnQueryTextListener(object : OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+//                binding.searchView.clearFocus()
+                return false
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+               filterList(newText)
+               return true
             }
         })
 
 
-//      binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-//          override fun onQueryTextSubmit(p0: String?): Boolean {
-//              TODO("Not yet implemented")
-//          }
-//
-//          override fun onQueryTextChange(p0: String?): Boolean {
-//              TODO("Not yet implemented")
-//          }
-//
-//      })
+    }
 
-
+    private fun filterList(query: String) {
+            val filteredList = ArrayList<Patient>()
+            for (i in ptList){
+                if(i.pname?.lowercase()?.contains(query.lowercase())==true){
+                    filteredList.add(i)
+                }
+            }
+            useradapter.setfilteredList(filteredList)
     }
 
 }

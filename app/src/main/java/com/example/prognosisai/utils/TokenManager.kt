@@ -40,4 +40,18 @@ class TokenManager @Inject constructor(@ApplicationContext context: Context) {
         return prefs.getString(id,null)
     }
 
+
+    fun saveCount(id:String, token: String){
+        val editor = prefs.edit()
+        editor.putString(id, token)
+        editor.apply()
+    }
+
+    fun getCount(id: String): String? {
+        return prefs.getString(id,null)
+    }
+
+
+
+
 }

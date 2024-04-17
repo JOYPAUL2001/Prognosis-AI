@@ -41,6 +41,9 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
         get() = _emailVerfResponseLiveData
 
 
+    private val _checkemailVerificationLiveData = MutableLiveData<NetworkResource<String>>()
+    val checkemailVerificationLiveData: LiveData<NetworkResource<String>>
+        get() = _checkemailVerificationLiveData
 
 
     private val _storingHospitalsDetails = MutableLiveData<NetworkResource<String>>()
@@ -156,7 +159,6 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
                 }
             }
     }
-
     override suspend fun storingPatientDetailsRDB(patient: Patient) {
         val patientDetails = Patient(patient.prediction, patient.pname, patient.dob, patient.gender, patient.age, patient.city, patient.state, patient.ptId, patient.ptUniqueId)
         providesRealTimeDatabaseInstance.child(tokenManager.getId("Hospital_Id")!!).child("Patient").child(patient.ptUniqueId!!).setValue(patientDetails).addOnCompleteListener { task->
@@ -167,7 +169,6 @@ class AuthRepositoryImpl @Inject constructor(private val firebaseAuth: FirebaseA
             }
         }
     }
-
 }
 
 

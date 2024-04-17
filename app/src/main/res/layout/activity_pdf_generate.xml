@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PdfGenerateActivity">
+
+    <TextView
+        android:id="@+id/pdf_hospital_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Patient Details"
+        android:textColor="@color/blue"
+        android:layout_marginStart="20dp"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_marginStart="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="100dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pdf_hospital_name" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/accont_shape"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/pdfName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Kate Cross"
+                    android:layout_weight="2"
+                    android:gravity="center|end"
+                    android:textSize="13sp"
+                    android:paddingEnd="5dp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:textColor="#ECF4D6"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="Predicted Type"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/pdfResult"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Actinic keratoses and intraepithelial carcinomae"
+                    android:layout_weight="2"
+                    android:gravity="end|center"
+                    android:textSize="13sp"
+                    android:paddingEnd="5dp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:textColor="#ECF4D6"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="Date Of Birth"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/pdfDOB"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="23/09/2001"
+                    android:layout_weight="2"
+                    android:gravity="center|end"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:paddingEnd="5dp"
+                    android:textColor="#ECF4D6"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="Age"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/pdfAge"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="22"
+                    android:layout_weight="2"
+                    android:gravity="center|end"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:paddingEnd="5dp"
+                    android:textColor="#ECF4D6"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="Gender"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/pdfGender"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center|end"
+                    android:text="Female"
+                    android:fontFamily="@font/montserrat_light"
+                    android:textColor="#ECF4D6"
+                    android:paddingEnd="5dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="ID"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/pdfID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="177943262110098"
+                    android:layout_weight="2"
+                    android:gravity="center|end"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:paddingEnd="5dp"
+                    android:textColor="#ECF4D6"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="Residence"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/pdflocation"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Jajan, West Bengal"
+                    android:layout_weight="2"
+                    android:gravity="center|end"
+                    android:textSize="13sp"
+                    android:paddingEnd="5dp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:textColor="#ECF4D6"
+                    />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/createPDF"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/btn3"
+                android:text="Generate PDF"
+                android:textColor="@color/blue"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                />
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

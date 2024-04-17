@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="22dp"
+        android:layout_margin="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
@@ -23,25 +23,25 @@
             android:fontFamily="@font/montserrat_semibold"
             android:gravity="center|left"
             android:paddingStart="10dp"
-            android:text="Report"
+            android:text="@string/report"
             android:layout_marginBottom="10dp"
             android:textColor="@color/blue"
             android:textSize="25sp" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            app:cardCornerRadius="10dp"
-            >
-            <androidx.appcompat.widget.SearchView
+            <SearchView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_view"
-                app:defaultQueryHint="Search Records"
-                app:iconifiedByDefault="false"
-                android:background="@drawable/bt5"
+                android:queryHint="Search Records"
+                android:iconifiedByDefault="false"
+                android:background="@drawable/search_structure"
+                android:queryBackground="@color/transparent"
+                android:searchIcon="@drawable/searching_for_pt"
+                android:closeIcon="@drawable/outline_cancel_24"
+                android:searchHintIcon="@null"
+                android:focusable="false"
                 />
-        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

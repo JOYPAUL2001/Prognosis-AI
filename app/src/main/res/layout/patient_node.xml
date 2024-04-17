@@ -6,6 +6,8 @@
     android:backgroundTint="#ECF4D6"
     android:layout_margin="10dp"
     app:cardCornerRadius="10dp"
+    android:elevation="10dp"
+    android:id="@+id/recCard"
     >
     <LinearLayout
         android:layout_width="match_parent"

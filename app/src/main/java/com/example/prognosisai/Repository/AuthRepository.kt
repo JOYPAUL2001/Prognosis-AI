@@ -16,4 +16,5 @@ interface AuthRepository {
     suspend fun storingHospitalDetailsRDB(hospital: Hospital)
 
     suspend fun storingPatientDetailsRDB(patient: Patient)
+
 }
