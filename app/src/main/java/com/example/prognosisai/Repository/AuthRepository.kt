@@ -2,6 +2,7 @@ package com.example.prognosisai.Repository
 
 import com.example.prognosisai.data.Hospital
 import com.example.prognosisai.data.Patient
+import com.example.prognosisai.utils.NetworkResource
 
 interface AuthRepository {
     suspend fun signUpWithEmail(hospital : Hospital)

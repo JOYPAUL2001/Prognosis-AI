@@ -30,8 +30,6 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepositoryIm
         get() = repository.emailVerfResponseLiveData
 
 
-    val checkemailVerificationLiveData: LiveData<NetworkResource<String>>
-        get() = repository.checkemailVerificationLiveData
     val storingHospitalsDetails: LiveData<NetworkResource<String>>
         get() = repository.storingHospitalsDetails
 

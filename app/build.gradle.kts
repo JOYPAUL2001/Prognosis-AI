@@ -71,8 +71,6 @@ dependencies {
     implementation (libs.androidx.navigation.ui.ktx)
 
 
-
-
     //splash screen
     implementation(libs.androidx.core.splashscreen)
 
@@ -87,6 +85,9 @@ dependencies {
     //Material Component
     implementation(libs.google.material)
 
-
+    //Pdf generator
+    implementation("com.itextpdf:itextg:5.5.10")
+    //External storage
+    implementation("com.karumi:dexter:5.0.0")
 
 }

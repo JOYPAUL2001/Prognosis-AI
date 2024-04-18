@@ -101,7 +101,7 @@ class RegistrationFragment : Fragment() {
                     Log.d("Live Data", "bindObserver: ${it.data}")
                     //Toast.makeText(requireContext(),"Verify your Email",Toast.LENGTH_SHORT).show()
                     lifecycleScope.launch {
-                        delay(600)
+                        delay(400)
                         findNavController().navigate(R.id.action_registrationFragment_to_signInFragment)
                     }
                 }

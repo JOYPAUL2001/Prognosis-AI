@@ -52,6 +52,16 @@ class TokenManager @Inject constructor(@ApplicationContext context: Context) {
     }
 
 
+    fun saveHosName(id:String, token: String){
+        val editor = prefs.edit()
+        editor.putString(id, token)
+        editor.apply()
+    }
+
+    fun getHosName(id: String): String?{
+        return prefs.getString(id,null)
+    }
+
 
 
 }

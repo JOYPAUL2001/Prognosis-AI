@@ -102,6 +102,7 @@ class AccountFragment : Fragment(){
         providesRealTimeDatabaseInstance.child(user).get().addOnSuccessListener {
             if(it.exists()){
                 val hos_name = it.child("name").value
+                tokenManager.saveHosName("Pdf_HosName",hos_name.toString())
                 val hos_id = it.child("id").value
                 val hos_email = it.child("email").value
                 val hos_reg = it.child("date").value
