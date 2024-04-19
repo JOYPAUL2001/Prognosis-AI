@@ -36,13 +36,13 @@
             <TextView
                 android:layout_width="260dp"
                 android:layout_height="34dp"
-                android:textSize="24sp"
+                android:layout_marginStart="25dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/fg_forget_password"
                 android:textAllCaps="false"
-                android:layout_marginStart="25dp"
                 android:textColor="#D9D9D9"
-                />
+                android:textSize="24sp" />
+
             <TextView
                 android:layout_width="260dp"
                 android:layout_height="37dp"

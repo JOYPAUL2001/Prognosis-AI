@@ -11,16 +11,17 @@
         android:id="@+id/pdf_hospital_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat"
         android:text="Patient Details"
         android:textColor="@color/blue"
-        android:layout_marginStart="20dp"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/cvPatientDetails"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvPatientDetails"
         android:layout_width="match_parent"
         android:layout_height="550dp"
         android:layout_marginStart="20dp"
@@ -36,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/accont_shape"
+            android:background="#1CB2B4"
             >
 
             <LinearLayout

@@ -24,8 +24,8 @@
     <string name="pincode">Pincode</string>
     <string name="contact_number">Contact Number</string>
     <string name="create_account">Create Account</string>
-    <string name="forget_password">Forget Password?</string>
-    <string name="fg_forget_password">Forget Password?</string>
+    <string name="forget_password">Forgot Password?</string>
+    <string name="fg_forget_password">Forgot Password?</string>
     <string name="don_t_worry_nenter_your_registered_email_id">Don\'t worry!\nEnter your registered Email ID</string>
     <string name="fg_submit">Submit</string>
     <string name="prognosis_ai">Prognosis AI</string>
@@ -36,7 +36,7 @@
     <string name="predict">Predict</string>
     <string name="account_fragment">Account Fragment</string>
     <string name="patient_details">Patient Details</string>
-    <string name="predicted_type_melanoma">Actinic keratoses and intraepithelial carcinomae</string>
+    <string name="predicted_type_melanoma">Melanoma</string>
     <string name="predicted_type">Predicted Type -</string>
     <string name="name">Name</string>
     <string name="gender">Gender</string>

@@ -97,7 +97,6 @@ class PdfGenerateActivity : AppCompatActivity() {
     }
 
     private fun createPDFFile(path: String) {
-
         if(File(path).exists()){
             File(path).delete()
 
@@ -108,7 +107,7 @@ class PdfGenerateActivity : AppCompatActivity() {
 
             PdfWriter.getInstance(document, FileOutputStream(path))
 
-//            Log.d("Joydeep deep", "createPDFFile: $path.message")
+            Log.d("Joydeep deep", "createPDFFile: $path.message")
 
             document.open()
 
@@ -138,10 +137,8 @@ class PdfGenerateActivity : AppCompatActivity() {
             addNewItem(document,"Prognosis AI", Element.ALIGN_CENTER,titleStyle)
             document.add(Paragraph("\n\n"))
 
-
             addNewItem(document,tokenManager.getHosName("Pdf_HosName").toString(), Element.ALIGN_CENTER,subTitle)
             document.add(Paragraph("\n\n\n"))
-
 
             addLineSeparator(document)
 
@@ -223,6 +220,4 @@ class PdfGenerateActivity : AppCompatActivity() {
         p.alignment = alignCenter
         document.add(p)
     }
-
-
 }

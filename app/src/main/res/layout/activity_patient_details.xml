@@ -35,7 +35,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:layout_gravity="center"
@@ -43,44 +43,33 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/predicted_type"
                 android:textColor="@color/black"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="11sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/predResult"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center"
-                android:paddingStart="2dp"
+                android:layout_gravity="center"
                 android:text="@string/predicted_type_melanoma"
                 android:textColor="@color/black"
-                android:textSize="11sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     </LinearLayout>
 
 
     <EditText
         android:id="@+id/ptName"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         app:layout_constraintEnd_toEndOf="parent"
