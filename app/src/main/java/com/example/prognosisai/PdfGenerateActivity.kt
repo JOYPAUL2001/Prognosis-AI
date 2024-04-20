@@ -33,12 +33,15 @@ import com.karumi.dexter.listener.single.PermissionListener
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.io.FileOutputStream
+import java.text.SimpleDateFormat
+import java.util.Date
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class PdfGenerateActivity : AppCompatActivity() {
 
-    val file_name: String = "test_pdf.pdf"
+    var timestamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+    var file_name = "prognosis_AI_$timestamp.pdf"
 
     private lateinit var binding: ActivityPdfGenerateBinding
 
@@ -72,21 +75,20 @@ class PdfGenerateActivity : AppCompatActivity() {
             .withPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
             .withListener(object: PermissionListener {
                 override fun onPermissionGranted(response: PermissionGrantedResponse?) {
-
                     binding.createPDF.setOnClickListener {
                         createPDFFile(Common.getAppPath(this@PdfGenerateActivity)+file_name)
                     }
                 }
-
                 override fun onPermissionDenied(response: PermissionDeniedResponse?) {
-
+                   // Toast.makeText(this@PdfGenerateActivity,"Failure3",Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onPermissionRationaleShouldBeShown(
                     permission: PermissionRequest?,
                     token: PermissionToken?
                 ) {
-
+                    token?.continuePermissionRequest()
+                   // Toast.makeText(this@PdfGenerateActivity,"Failure4",Toast.LENGTH_SHORT).show()
                 }
 
             })
@@ -99,10 +101,10 @@ class PdfGenerateActivity : AppCompatActivity() {
     private fun createPDFFile(path: String) {
         if(File(path).exists()){
             File(path).delete()
-
+           // Toast.makeText(this@PdfGenerateActivity,"Failure1",Toast.LENGTH_SHORT).show()
         }
         try {
-
+           // Toast.makeText(this@PdfGenerateActivity,"Failure2",Toast.LENGTH_SHORT).show()
             val document = Document()
 
             PdfWriter.getInstance(document, FileOutputStream(path))
@@ -166,6 +168,7 @@ class PdfGenerateActivity : AppCompatActivity() {
         }catch (e: Exception){
             Log.d("Joydeep Paul", "createPDFFile: $e.message")
 
+            Toast.makeText(this@PdfGenerateActivity,"Failure",Toast.LENGTH_SHORT).show()
         }
 
     }
