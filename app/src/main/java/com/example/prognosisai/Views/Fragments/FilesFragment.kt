@@ -1,6 +1,5 @@
 package com.example.prognosisai.Views.Fragments
 
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -102,7 +101,7 @@ class FilesFragment : Fragment() {
 
         binding.searchView.setOnQueryTextListener(object : OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-//                binding.searchView.clearFocus()
+                binding.searchView.clearFocus()
                 return false
             }
             override fun onQueryTextChange(newText: String): Boolean {
@@ -110,18 +109,21 @@ class FilesFragment : Fragment() {
                return true
             }
         })
-
-
     }
 
     private fun filterList(query: String) {
-            val filteredList = ArrayList<Patient>()
-            for (i in ptList){
-                if(i.pname?.lowercase()?.contains(query.lowercase())==true){
+        val filteredList = ArrayList<Patient>()
+        if (query.isEmpty()) {
+            // Reset to original list if search query is empty
+            filteredList.addAll(ptList)
+        } else {
+            for (i in ptList) {
+                if (i.ptId?.lowercase()?.contains(query.lowercase()) == true
+                ) {
                     filteredList.add(i)
                 }
             }
+        }
             useradapter.setfilteredList(filteredList)
     }
-
 }

@@ -40,7 +40,7 @@
                 android:closeIcon="@drawable/outline_cancel_24"
                 android:searchHintIcon="@null"
                 android:focusable="false"
-                />
+                 />
 
     </LinearLayout>
 
