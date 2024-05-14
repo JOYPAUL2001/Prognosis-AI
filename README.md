@@ -1,5 +1,11 @@
 <!-- Add image banner here -->
 
+<div align="center">
+<br>
+<img src="images/Banner.svg" />
+
+</div>
+
 <h1 align = "center">Prognosis AI</h1>
 Skin cancer is the out-of-control increase of odd cells within the epidermis, the outermost skin layer, because of unrepaired DNA damage that triggers mutations. These mutations lead the skin cells to multiply rapidly and shape malignant tumors. Melanoma is the most dangerous type of skin cancer, whose  incidence has increased dramatically over the past 50 years. In fact, it is one of the most common cancers in terms of mortality. Early detection stands as a pivotal factor influencing the successful treatment and improved diagnosis of skin cancer. 
 Built by integrating an ensemble deep learning model, CNN-RF (Convolutional Neural Network-Random Forest) to classify the images and predict the cancer type, Prognosis AI is meant to be used by registered hospitals to predict the skin cancer type of the patients. The app also displays a report of the patient’s results along with the hospital and patient details. The report can also be downloaded in pdf format.
@@ -33,4 +39,16 @@ The accuracy results on the test data were as follows:
 ## Model Integration 💻
 The TensorFlow model was converted to a TensorFlow Lite model. It was then integrated to the android app. 
 
-## 
+## Screenshots 📱
+<p align="center">  
+  <img src="images/1.svg" width="400" />
+  <img src="images/2.svg" width="400" />
+  <img src="images/3.svg" width="400" />
+  <img src="images/4.svg" width="400" />
+  <img src="images/5.svg" width="400" />
+  <img src="images/6.svg" width="400" />
+  <img src="images/7.svg" width="400" />
+  <img src="images/8.svg" width="400" />
+  <img src="images/9.svg" width="400" />
+  <img src="images/10.svg" width="400" />
+</p>
