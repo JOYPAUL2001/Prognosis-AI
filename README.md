@@ -50,6 +50,9 @@ The TensorFlow model was converted to a TensorFlow Lite model. It was then integ
   <img src="images/7.svg" width="200" />
   <img src="images/8.svg" width="200" />
   <img src="images/9.svg" width="200" />
+  <img src="images/patient_id.svg" width="200" />
+  <img src="images/details_patients.svg" width="200" />
+  <img src="images/pdf.svg" width="200" />
   <img src="images/10.svg" width="200" />
 </p>
 
