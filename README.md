@@ -41,14 +41,21 @@ The TensorFlow model was converted to a TensorFlow Lite model. It was then integ
 
 ## Screenshots 📱
 <p align="center">  
-  <img src="images/1.svg" width="400" />
-  <img src="images/2.svg" width="400" />
-  <img src="images/3.svg" width="400" />
-  <img src="images/4.svg" width="400" />
-  <img src="images/5.svg" width="400" />
-  <img src="images/6.svg" width="400" />
-  <img src="images/7.svg" width="400" />
-  <img src="images/8.svg" width="400" />
-  <img src="images/9.svg" width="400" />
-  <img src="images/10.svg" width="400" />
+  <img src="images/1.svg" width="200" />
+  <img src="images/2.svg" width="200" />
+  <img src="images/3.svg" width="200" />
+  <img src="images/4.svg" width="200" />
+  <img src="images/5.svg" width="200" />
+  <img src="images/6.svg" width="200" />
+  <img src="images/7.svg" width="200" />
+  <img src="images/8.svg" width="200" />
+  <img src="images/9.svg" width="200" />
+  <img src="images/10.svg" width="200" />
+</p>
+
+## Video 📽
+<p align = "center">
+  
+https://github.com/GeekLord04/Prognosis-AI/assets/84928799/0c31c450-9b94-4833-91e4-93b8212b3085
+
 </p>
