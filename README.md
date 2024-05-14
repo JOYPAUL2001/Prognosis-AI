@@ -1,5 +1,11 @@
 <!-- Add image banner here -->
 
+<div align="center">
+<br>
+<img src="images/Banner.svg" />
+
+</div>
+
 <h1 align = "center">Prognosis AI</h1>
 Skin cancer is the out-of-control increase of odd cells within the epidermis, the outermost skin layer, because of unrepaired DNA damage that triggers mutations. These mutations lead the skin cells to multiply rapidly and shape malignant tumors. Melanoma is the most dangerous type of skin cancer, whose  incidence has increased dramatically over the past 50 years. In fact, it is one of the most common cancers in terms of mortality. Early detection stands as a pivotal factor influencing the successful treatment and improved diagnosis of skin cancer. 
 Built by integrating an ensemble deep learning model, CNN-RF (Convolutional Neural Network-Random Forest) to classify the images and predict the cancer type, Prognosis AI is meant to be used by registered hospitals to predict the skin cancer type of the patients. The app also displays a report of the patient’s results along with the hospital and patient details. The report can also be downloaded in pdf format.
@@ -33,4 +39,52 @@ The accuracy results on the test data were as follows:
 ## Model Integration 💻
 The TensorFlow model was converted to a TensorFlow Lite model. It was then integrated to the android app. 
 
-## 
+## Screenshots 📱
+<p align="center">  
+  <img src="images/1.svg" width="200" />
+  <img src="images/2.svg" width="200" />
+  <img src="images/3.svg" width="200" />
+  <img src="images/4.svg" width="200" />
+  <img src="images/5.svg" width="200" />
+  <img src="images/6.svg" width="200" />
+  <img src="images/7.svg" width="200" />
+  <img src="images/8.svg" width="200" />
+  <img src="images/9.svg" width="200" />
+  <img src="images/patient_id.svg" width="200" />
+  <img src="images/details_patients.svg" width="200" />
+  <img src="images/pdf.svg" width="200" />
+  <img src="images/10.svg" width="200" />
+</p>
+
+## Video 📽
+<p align = "center">
+  
+https://github.com/GeekLord04/Prognosis-AI/assets/84928799/0c31c450-9b94-4833-91e4-93b8212b3085
+
+</p>
+
+## License 📜
+```
+MIT License
+
+Copyright (c) 2024 Joydeep Paul
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
